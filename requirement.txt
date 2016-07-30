@@ -1,0 +1,2 @@
+Django==1.9
+django-queued-storage==0.8.0

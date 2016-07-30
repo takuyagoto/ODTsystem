@@ -1,3 +1,4 @@
+# coding:utf-8
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -17,12 +18,18 @@ class LoginUser(models.Model):
         ('head-6.png', '女士3')
     )
     user = models.OneToOneField(User)
-    fullname = models.CharField(u'昵称', max_length=50)
-    sex = models.CharField(u'性别', max_length=2, choices=sex_choices)
-    age = models.IntegerField(u'年龄')
+    # fullname = models.CharField(u'昵称', max_length=50)
+    # sex = models.CharField(u'性别', max_length=2, choices=sex_choices)
+    # age = models.IntegerField(u'年龄')
+    # friends = models.ManyToManyField('self', related_name='myfriend',null=True, blank=True)
+    # head_img = models.CharField(u'头像', choices=head_img_choice, max_length=30, default='head-1.png')
+    # remark = models.CharField(u'签名', max_length=200, null=True, blank=True)
+    fullname = models.CharField(u'full name', max_length=50)
+    sex = models.CharField(u'sex', max_length=2, choices=sex_choices)
+    age = models.IntegerField(u'year')
     friends = models.ManyToManyField('self', related_name='myfriend',null=True, blank=True)
-    head_img = models.CharField(u'头像', choices=head_img_choice, max_length=30, default='head-1.png')
-    remark = models.CharField(u'签名', max_length=200, null=True, blank=True)
+    head_img = models.CharField(u'image', choices=head_img_choice, max_length=30, default='head-1.png')
+    remark = models.CharField(u'remark', max_length=200, null=True, blank=True)
 
     def __str__(self):
         return self.fullname
@@ -30,7 +37,7 @@ class LoginUser(models.Model):
 
 class UserGroup(models.Model):
     owner = models.ForeignKey(LoginUser, related_name='mygroup')
-    groupname = models.CharField(u'用户分组名', max_length=100)
+    groupname = models.CharField(u'group name', max_length=100)
     members = models.ManyToManyField("LoginUser", related_name='usergroup_member')
     isdefault = models.IntegerField(default=0)
 
@@ -39,11 +46,11 @@ class UserGroup(models.Model):
 
 
 class WebGroups(models.Model):
-    name = models.CharField(u'群组名', max_length=100)
+    name = models.CharField(u'group name', max_length=100)
     owner = models.ForeignKey(LoginUser)
     admins = models.ManyToManyField(LoginUser, related_name='webgroup_admins', null=True, blank=True)
     members = models.ManyToManyField(LoginUser, related_name='webgroup_member', null=True, blank=True)
-    brief = models.CharField(u'群组备注', max_length=200, null=True, blank=True)
+    brief = models.CharField(u'brief', max_length=200, null=True, blank=True)
     max_members = models.IntegerField()
 
     def __str__(self):

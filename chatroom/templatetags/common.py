@@ -12,11 +12,6 @@ def website_title():
 
 
 def split_page(result_obj):
-    """
-    分页模块，后台传入一个分页结果集就可以
-    :param result_obj:
-    :return:
-    """
     return_str = "<nav>"
     return_str += "<ul class='pagination  pull-right'>"
     if result_obj.has_previous():
@@ -28,7 +23,7 @@ def split_page(result_obj):
     for i in result_obj.paginator.page_range:
         # print(i,result_obj.paginator.page_range,result_obj.number)
         hide_page_num = abs(result_obj.number - i)
-        if hide_page_num <= 3:  # 3为当前页前后显示多少个
+        if hide_page_num <= 3: 
             return_str += "<li "
             if i == result_obj.number:
                 return_str += "class='active'><a href='?page=" + str(i) + "'>" + str(i) + "</a></li>"

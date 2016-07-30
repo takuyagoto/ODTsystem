@@ -25,7 +25,8 @@ SECRET_KEY = '^3n+=t8$+xkh^#wb&i4flhqf_!o*tx2vm@bi%5&#4=rsw(g%ah'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['lianlian.pythonanywhere.com']
+# ALLOWED_HOSTS = ['lianlian.pythonanywhere.com']
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -120,11 +121,12 @@ USE_TZ = False
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "statics"),
 )
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'statc/')
 # website title
 WEBSITE_TITLE = 'Chat'
 # session expiry time(second)
