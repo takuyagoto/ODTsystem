@@ -26,7 +26,7 @@ SECRET_KEY = '^3n+=t8$+xkh^#wb&i4flhqf_!o*tx2vm@bi%5&#4=rsw(g%ah'
 DEBUG = False
 
 # ALLOWED_HOSTS = ['lianlian.pythonanywhere.com']
-ALLOWED_HOSTS = ['127.0.0.1',
+ALLOWED_HOSTS = ['0.0.0.0',
                 'odtsystem.mybluemix.net'
                 ]
 
