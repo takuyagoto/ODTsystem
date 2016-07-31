@@ -1,3 +1,14 @@
+amqp==1.4.9
+anyjson==0.3.3
+billiard==3.3.0.23
+celery==3.1.23
+dj-static==0.0.6
 Django==1.9
+django-appconf==1.0.2
+django-celery==3.1.17
 django-queued-storage==0.8.0
 future==0.15.2
+kombu==3.0.35
+pytz==2016.6.1
+six==1.10.0
+static3==0.7.0
