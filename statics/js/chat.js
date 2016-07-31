@@ -84,7 +84,7 @@ function saveSelectedInfo(select_type,select_id, select_img,select_name) {
     } //结束切换聊天对象
 
     //打印聊天的标题
-    $("#talkwith").html("<h2>Now chatting with [ "+ choose_user_name +" ] </h2>");
+    $("#talkwith").html("<h2>[ "+ choose_user_name +" ] さんとのチャット</h2>");
 
     // 获取当前切换过来的对象聊天记录，填充到聊天窗口
     $(MESSAGE_DB).each(function () {
@@ -177,7 +177,7 @@ function isSelectUser() {
     if (is_select == "true"){
         return true
     }else{
-        $("#talkwith").html("<h2>请选择一个聊天对象</h2>");
+        $("#talkwith").html("<h2><FONT color=red>※連絡する友達を選択してください</FONT></h2>");
         return false
     }
 }
@@ -335,7 +335,7 @@ function send_msg(msgtype) {
     //如果当前没有和任何人聊天，则无法发送文件
     var chat_stat = $("#talkwith").attr("is_select");
     if (chat_stat == "false"){
-        $("#talkwith").html("<h2>请选择一个聊天对象</h2>");
+        $("#talkwith").html("<h2>連絡する友達を選択してください</h2>");
     }else{
         var to_user = $("#talkwith").attr("select_user");
         var from_user_img = $("#login_user_head_img").attr('src');
@@ -424,9 +424,9 @@ function buildUserListHtml(userlist) {
         html_list += "<td>" + $(this).attr('age') + "</td>";
         html_list += "<td>" + $(this).attr('remark') + "</td>";
         if ($(this).attr('status') == "online") {
-            html_list += "<td class=\"text-center\"><span class=\"label label-success\"> 在线 </span></td>";
+            html_list += "<td class=\"text-center\"><span class=\"label label-success\"> オンライン </span></td>";
         }else {
-            html_list += "<td class=\"text-center\"><span class=\"label label-default\"> 离线 </span></td>";
+            html_list += "<td class=\"text-center\"><span class=\"label label-default\"> オフライン </span></td>";
         }
         html_list += "<td style=\"width: 10%;\">";
         html_list += "<a href='#' class=\"table-link\" id='"+$(this).attr('id')+"' onclick='addMyFriend(this);'>";

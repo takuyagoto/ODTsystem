@@ -40,11 +40,11 @@
                         </div>
                         <div class="form-group">
                             <!--<div contentEditable="true" id="msg_area"  class="form-control input"></div>-->
-                            <textarea class="form-control input" id="msg_area" rows="2" placeholder="Enter your message..."></textarea>
+                            <textarea class="form-control input" id="msg_area" rows="2" placeholder="メッセージを入力してください..."></textarea>
 
                         </div>
                         <div class="clearfix">
-                            <button type="button" id="btn_sendmsg" class="btn btn-success pull-right">Send</button>
+                            <button type="button" id="btn_sendmsg" class="btn btn-success pull-right">送信</button>
                         </div>
                     </div>
                     <!-- end sendmessages -->
@@ -61,11 +61,11 @@
             <div class="tabs-wrapper tabs-no-header">
                 <ul class="nav nav-tabs">
                     <li class="active">
-                        <a href="#tab-users" data-toggle="tab">Contacts&nbsp;</a>
+                        <a href="#tab-users" data-toggle="tab">連絡&nbsp;</a>
                         <span id="user_totalmsg" class="messagecount" style="display: none;">0</span>
                     </li>
                     <li>
-                        <a href="#tab-webgroup" data-toggle="tab">Group&nbsp;</a>
+                        <a href="#tab-webgroup" data-toggle="tab">グループ&nbsp;</a>
                         <span id="group_totalmsg" class="messagecount" style="display: none;">0</span>
                     </li>
                 </ul>
@@ -131,7 +131,7 @@
                                         <span class="product clearfix">
                                             <span class="groupname" id="{{ webgroup.id }}">{{ webgroup.name }}</span><br>
                                             <span class="price"><i class="fa fa-users"></i> Member number :</span>
-                                            <span class="warranty" title="查看成员" onclick="return viewMembers({{ webgroup.id }});">{{ webgroup.members.select_related.count }}人</span>
+                                            <span class="warranty" title="メンバーを見る" onclick="return viewMembers({{ webgroup.id }});">{{ webgroup.members.select_related.count }}人</span>
                                         </span>
                                     </a>
                                     <div class="type" id="div_group_msg_{{ webgroup.id }}" hidden>
@@ -159,7 +159,7 @@
 
     <!-- 添加好友 -->
     <div class="col-lg-4 ">
-        <a class="btn btn-sm btn-success pull-right"  data-target=".bs-example-modal-lg" onclick="addFriends(1);"><i class="fa fa-pencil"></i> add friends</a>
+        <a class="btn btn-sm btn-success pull-right"  data-target=".bs-example-modal-lg" onclick="addFriends(1);"><i class="fa fa-pencil"></i>友達を追加</a>
     </div>
     <!-- end 右侧好友框 -->
 
@@ -179,7 +179,7 @@
                 <input type="file" name="file" id="upfile"><input type="text" id="send_type" name="send_type" hidden value="img">
               </div>
               <div class="modal-footer">
-                <button id="btn-sendfile" type="button" class="btn btn-sm btn-success"  onclick="sendfile()">Send</button>
+                <button id="btn-sendfile" type="button" class="btn btn-sm btn-success"  onclick="sendfile()">送信</button>
               </div>
           </form>
       </div>
@@ -203,17 +203,17 @@
             <div class="main-box-body clearfix">
                 <div class="table-responsive" id="alluserlist">
                     <div class="dataTables_filter" id="table-example_filter">
-                        <label>Search:<input id="search-user" aria-controls="table-example" placeholder="好友昵称" class="input-group-sm" ></label>
+                        <label>検索:<input id="search-user" aria-controls="table-example" placeholder="友達のニックネーム" class="input-group-sm" ></label>
                     </div>
                     <table class="table user-list table-hover" id="user_list_body">
                         <thead>
                             <tr>
-                                <th><span>nickname</span></th>
-                                <th><span>gender</span></th>
-                                <th><span>age</span></th>
-                                <th><span>contacts</span></th>
-                                <th class="text-center"><span>status</span></th>
-                                <th>add</th>
+                                <th><span>ユーザ名</span></th>
+                                <th><span>性別</span></th>
+                                <th><span>年齢</span></th>
+                                <th><span>電話番号</span></th>
+                                <th class="text-center"><span>ステータス</span></th>
+                                <th>追加</th>
                             </tr>
                         </thead>
                         <tbody >
@@ -226,7 +226,7 @@
                 </div>
 
                 <div id="choose_groups" class="form-group" hidden>
-                    select class：<span><a id="btn_insert_back" class="pull-right"   href="#" onclick="back();"><i class="fa fa-reply"></i> return </a> </span>
+                    属性を選んでください：<span><a id="btn_insert_back" class="pull-right"   href="#" onclick="back();"><i class="fa fa-reply"></i> 戻る </a> </span>
                     <hr>
                     <select class="form-control">
                         {% for group_dict in friendlist %}
@@ -236,7 +236,7 @@
                         {% endfor %}
                     </select>
                     <br>
-                    <a id="btn_insert_group" class="btn btn-success btn-sm pull-right" choose_user="" href="#" onclick="insertToGroup(this);"><i class="fa fa-plus-square"></i> add </a>
+                    <a id="btn_insert_group" class="btn btn-success btn-sm pull-right" choose_user="" href="#" onclick="insertToGroup(this);"><i class="fa fa-plus-square"></i> 追加 </a>
                 </div>
 
              </div>
