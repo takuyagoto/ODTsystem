@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.shortcuts import render, HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
@@ -79,7 +80,7 @@ def load_all_user(request):
     for userobj in show_list:
         return_user.append({'username': userobj.fullname,
                             'userimg': userobj.head_img,
-                            'sex': 'male' if userobj.sex == 'F' else 'female',
+                            'sex': '男性' if userobj.sex == 'F' else '女性',
                             'status': 'online' if cache.get('online_stat_' + str(userobj.id)) else 'offline',
                             'age': userobj.age,
                             'id': userobj.id,
